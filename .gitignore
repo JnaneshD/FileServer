@@ -1,0 +1,93 @@
+# ----------------------------------
+# Go / Golang
+# ----------------------------------
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go build output
+bin/
+build/
+dist/
+cmd/*/bin/
+exachk*/**
+# Coverage files
+coverage.out
+
+# Vendor (if using go mod vendor manually)
+# vendor/
+
+# IDE / editor settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+!env.example
+
+
+# ----------------------------------
+# React / NodeJS Frontend
+# ----------------------------------
+
+# Node modules
+node_modules/
+
+# Build artifacts
+/build
+/dist
+/.parcel-cache
+/.next
+out/
+.next/
+
+# Static files
+*.cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# PM2 logs
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# MacOS
+.DS_Store
+
+# OS / System files
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+
+# ----------------------------------
+# Misc
+# ----------------------------------
+
+# Local-only secrets
+secrets.json
+
+# Docker
+docker-data/
+
