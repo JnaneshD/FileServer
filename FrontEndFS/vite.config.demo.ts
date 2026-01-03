@@ -9,7 +9,7 @@ export default defineConfig({
     'import.meta.env.VITE_USE_MOCK': JSON.stringify('true')
   },
   build: {
-    outDir: '../demo',
+    outDir: '../docs',
     emptyOutDir: true
   }
 })
