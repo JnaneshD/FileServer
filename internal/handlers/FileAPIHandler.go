@@ -5,9 +5,7 @@ import (
 	utils "FileSystem/internal/utils"
 	model "FileSystem/models"
 	"encoding/json"
-	"fmt"
 	"net/http"
-	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -43,12 +41,6 @@ func Getfileshandler(w http.ResponseWriter, r *http.Request) {
 
 	// If no path => you can decide: list CWD as JSON or redirect to UI root
 	if path == "" {
-		if isBrowserNavigation(r) && uiBaseURL != "" {
-			// redirect to UI at /dist/?path=
-			target := fmt.Sprintf("%s/?path=%s", uiBaseURL, url.QueryEscape(""))
-			http.Redirect(w, r, target, http.StatusFound)
-			return
-		}
 
 		allfiles, appErr := service.ListAllFilesAndFolders()
 		if appErr != nil {
@@ -93,12 +85,6 @@ func Getfileshandler(w http.ResponseWriter, r *http.Request) {
 	// If it's a directory ⇒ maybe redirect, else JSON
 	if info.IsDir() {
 		// Direct browser navigation: redirect to UI app
-		if isBrowserNavigation(r) && uiBaseURL != "" {
-			// Important: use the **logical** path value in the URL, not fsPath
-			target := fmt.Sprintf("%s/?path=%s", uiBaseURL, url.QueryEscape(path))
-			http.Redirect(w, r, target, http.StatusFound)
-			return
-		}
 
 		// API call from frontend → respond with JSON
 		allfiles, appErr := service.ListAllFilesAndFolders(fsPath)
