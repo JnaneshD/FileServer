@@ -1,0 +1,193 @@
+.file-system-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.file-system-view.loading,
+.file-system-view.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.file-system-view.error {
+  color: #d32f2f;
+}
+
+.file-system-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.file-system-table thead {
+  display: block;
+  background-color: #fafafa;
+  border-bottom: 2px solid #ddd;
+  flex-shrink: 0;
+}
+
+.file-system-table thead tr {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 1rem;
+}
+
+.file-system-table thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  position: sticky;
+  top: 0;
+  background-color: #fafafa;
+  z-index: 100;
+}
+
+.file-system-table thead th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.file-system-table thead th.sortable:hover {
+  background-color: #f0f0f0;
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sort-icon {
+  font-size: 0.875rem;
+  color: #2196F3;
+  flex-shrink: 0;
+}
+
+.sort-icon.inactive {
+  color: #ccc;
+  opacity: 0.5;
+}
+
+.file-system-table tbody {
+  display: block;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+.file-system-table tbody tr {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.file-system-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.file-system-table tbody tr.folder {
+  cursor: pointer;
+}
+
+.file-system-table tbody tr.folder:hover {
+  background-color: #e3f2fd;
+}
+
+.file-system-table tbody td {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name-cell {
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.type-cell,
+.size-cell {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.modified-cell {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.icon.folder {
+  color: #ffa726;
+}
+
+.icon.file {
+  color: #42a5f5;
+}
+
+.file-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.file-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.file-link:visited {
+  color: inherit;
+}
+
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: #999;
+  grid-column: 1 / -1;
+}
+
+/* Scrollbar styling */
+.file-system-table tbody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.file-system-table tbody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.file-system-table tbody::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.file-system-table tbody::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
